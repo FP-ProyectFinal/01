@@ -1,4 +1,3 @@
-
 package finalprojct;
 //Contiene los datos de la venta
 //La definición de una clase especifica cómo serán los objetos de dicha clase,
