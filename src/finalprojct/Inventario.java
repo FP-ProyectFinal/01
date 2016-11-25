@@ -1,24 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package finalprojct;
-
 import java.util.ArrayList;
-
+//Contiene todos los productos
 public class Inventario {
     private ArrayList<Item> items;
-    
+    //Se hace un Arraylist de Item llamado items
     public Inventario(){
         this.items = new ArrayList();
     }
-    
     /**
      * Agrega un Item a el arraylist de items
      * @param newItem 
      * @return  boolean (true si se agrego el item y false si no)
-     */
+     *///addItem es para cargar elementos cuantas veces queramos
     public boolean addItem (Item newItem) {
         boolean result;
         if (this.isEmpty()) {
@@ -38,27 +31,24 @@ public class Inventario {
      * Obtiene un item del arraylist basado en un index
      * @param index
      * @return Item
-     */
+     *///getAt permite encontrar algo en una coleccion
     public Item getItemAt (int index) {
         return this.items.get(index);
     }
-    
     /**
-     * 
      * @param clave
      * @return boolean (true si la clave existe, false si no)
-     */
+     *///find permite realizar busquedas
     public int findClave (String clave) {
         int result = -1;
-        if (this.isEmpty()) return result;
-        
+        if (this.isEmpty()) return result;//Si esta vacio regresa result
         for( int i = 0; i < this.size(); i++) {
+            //Comienza un contador con i<que el tamaño del arraylist
             if(this.getItemAt(i).getClave().equals(clave)){
-                result = i;
+                result = i; //result toma el valor de i
                 break;
             }
         }
-        
         return result;
     } 
     /**
@@ -75,5 +65,4 @@ public class Inventario {
     public boolean isEmpty () {
         return this.items.isEmpty();
     }
-    
 }
