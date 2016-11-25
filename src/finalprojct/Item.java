@@ -1,4 +1,3 @@
-
 package finalprojct;
 //Contiene los atributos de los productos
 public class Item {
