@@ -1,13 +1,12 @@
 
 package finalprojct;
-
+//Contiene los atributos de los productos
 public class Item {
     // Propiedades
     private String clave;
     private double precio;
     private int cantidad;
     private String description;
-
     // Obtiene la clave
     public String getClave() {
         return clave;
@@ -40,7 +39,6 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
-   
     // Constructor
    public Item (String clave, double precio, int cantidad, String description) {
        this.clave = clave;
