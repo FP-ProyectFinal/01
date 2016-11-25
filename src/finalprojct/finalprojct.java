@@ -1,43 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package finalprojct;
 
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Bitam
- */
-public class finalprojct extends javax.swing.JFrame {
+public class finalprojct extends javax.swing.JFrame { //javax.swing.JFrame es para la interfaz visual
     // Propiedades
     private Inventario memoria;
     private HistorialVentas memoriaVentas;
     private ArrayList<HistorialVentas> globalVentas;
-    public DefaultTableModel tableModel;
-    public DefaultTableModel tableModelVenta;
+    //DefautltTableModel es una clase que contiene todos los metodos necesarios 
+    public DefaultTableModel tableModel; //para modificar datos en su interior,
+    public DefaultTableModel tableModelVenta;//añadir filas o columnas y darle a cada columna el nombre que desee
     private Note creadorDeNotas;
 
     /**
      * Creates new form finalprojct
      */
     public finalprojct() {
-        initComponents();
+        initComponents(); //Parte de la interfaz visual
         this.memoria = new Inventario();
         this.memoriaVentas = new HistorialVentas();
         this.globalVentas = new ArrayList();
         this.creadorDeNotas = new Note();
         // Se agrega los titulos de las columnas a la tabla
-        String col[] = {"clave", "precio","cantidad"};
+        //Se crea un arreglo String que contiene clave, precio y cantidad
+        String col[] = {"clave", "precio","cantidad"}; 
         // Se agrega los titulos de las columnas a la tabla venta
+        //Se crea un arreglo String que contiene clave, precio, cantidad e importe
         String colVenta[] = {"clave", "precio","cantidad", "importe"};
 
         this.tableModel = new DefaultTableModel(col, 0);
         this.tableModelVenta = new DefaultTableModel(colVenta, 0);
+        //setModel es para modificar el modelo de la tabla
         this.table.setModel(this.tableModel);
         this.tableVenta.setModel(this.tableModelVenta);
     }
@@ -49,7 +44,7 @@ public class finalprojct extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() { //ESTO EN NETBEANS SALE COMO "GENERATED CODE"
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -361,26 +356,26 @@ public class finalprojct extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents //AQUI TERMINA EL GENERATED CODE
 
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarMouseClicked
         // se optiene los valores de la forma (clave, precio, cantidad, descripcion)
-        String c = this.clave.getText();
+        String c = this.clave.getText();//getText te devuelve el texto escrito en el componente
         String p = this.precio.getText();
         String q = this.cantidad.getText();
         String d = this.descripcion.getText();
         // Si pudimos insertar el nuevo Item, entonces asignamos mensaje de agredado
-        // si no pudimos insertar, entonces enviamos el mensaje de que el producto ya existe
         if (this.memoria.addItem(new Item(c, Double.parseDouble(p), Integer.parseInt(q), d))) {
+            //setText es para poner texto en el componente
             this.message.setText("Producto con clave " + c + " agredado");
             Object [] data = {c,p,q};
             this.tableModel.addRow(data);
             this.limpiarFormaDeInventario();
-        } else {
+        } else {// si no pudimos insertar, entonces enviamos el mensaje de que el producto ya existe
             this.message.setText("Product con clave " + c + " ya existe");
         }
     }//GEN-LAST:event_guardarMouseClicked
-    
+    //limpiarFormaDeInventario pone en blanco donde se introducen los datos
     private void limpiarFormaDeInventario () {
         this.clave.setText("");
         this.precio.setText("");
@@ -527,7 +522,7 @@ public class finalprojct extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) { //ESTO TAMBIEN SALE COMO "GENERATED CODE"
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -549,7 +544,7 @@ public class finalprojct extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(finalprojct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        //</editor-fold>//AQUI TERMINA EL GENERATED CODE
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
