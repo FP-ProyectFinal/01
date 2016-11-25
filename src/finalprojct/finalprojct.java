@@ -396,6 +396,8 @@ public class finalprojct extends javax.swing.JFrame { //javax.swing.JFrame es pa
         // Si no contiene el separador, entonces asignamos cantidad a 1  y clave a claveCantidad
         if (claveCantidad.contains(separador)) {
             formato = claveCantidad.split("\\"+separador);
+         //split es un metodo que nos permite dividir una cadena en 
+         //base a las ocurrencias de una expresion regular definida dentro
             cantidad = Integer.parseInt(formato[0]);
         } else {
             cantidad = 1;
